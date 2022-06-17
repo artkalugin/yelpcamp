@@ -70,12 +70,6 @@ app.get('/', (req, res) => {
     res.redirect('/campgrounds');
 })
 
-app.get('/fakeuser', async (req, res) => {
-    const user = new User({ email: 'colttt@gmail.com', username: 'colttt' });
-    const newUser = await User.register(user, 'chicken');
-    res.send(newUser);
-})
-
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404));
 })
